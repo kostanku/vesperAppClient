@@ -1,0 +1,63 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-primary">
+  <div class="container">
+    <a class="navbar-brand" href="#"><b>VesperApp von {{getProfile().name}}</b></a>
+    <div class="collapse navbar-collapse text-center justify-content-end" id="navbarPrimarySupportedContent">
+      <button class="btn navbar-btn ml-2 btn-secondary">Neue Vesperverabredung</button>
+      <button class="btn navbar-btn ml-2 btn-primary" (click)="logout()">Abmelden</button>
+    </div>
+  </div>
+</nav>
+<div class="py-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="alert alert-success" role="alert">
+          Hallo {{getProfile().name}},<br> willkommen bei der VersperApp des CVJM Dußlingen & Stockach. Hier kannst Du Deine
+          Versperverabredungen einsehen und neue Termine mit Freunden vereinbaren. <br>
+          Viel Spaß damit!
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Meine Verabredungen</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Meine Vesperangebote</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Offene Vesperangebote</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-hover table-striped table-bordered">
+          <thead class="thead-inverse">
+            <tr>
+              <th scope="col">Termin</th>
+              <th scope="col">Gastgeber</th>
+              <th scope="col">Gast</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let appointment of appointments">
+              <th>{{appointment.date_offered}}</th>
+              <td>{{appointment.host_name}}</td>
+              <td>{{appointment.guest_name}}</td>
+              <td><button type="button" class="btn btn-link">Absagen</button>
+                <button type="button" class="btn btn-link">Erinnern</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
